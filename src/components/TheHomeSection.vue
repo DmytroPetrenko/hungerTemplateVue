@@ -29,19 +29,19 @@
 			<div class="schedule">
 				<div class="text">Mon - Fri: 8PM - 10PM, Sat - Sun: 8PM - 3AM</div>
 			</div>
-			<div class="wrapper1"></div>
-			<div class="wrapper2">
+			<div class="wrapper"></div>
+			<div>
 				<div class="title">
-					<h6>restaurant</h6>
-					<h1>hungry people</h1>
+					<h6 class="h6">restaurant</h6>
+					<h1 class="h1">hungry people</h1>
 					<hr />
 					<div class="buttons">
-						<input type="button" value="BOOK TABLE" />
-						<input class="explore" type="button" value="EXPLORE" />
+						<input class="input" type="button" value="BOOK TABLE" />
+						<input class="explore input" type="button" value="EXPLORE" />
 					</div>
 				</div>
 			</div>
-			<div class="wrapper3">
+			<div class="wrapper down-icon-wrapper">
 				<div class="down_block">
 					<div class="arrow_block">
 						<font-awesome-icon :icon="['fas', 'angle-down']" />
@@ -153,13 +153,11 @@
 			}
 		}
 
-		.wrapper1 {
+		.wrapper {
 			flex-grow: 1;
 			flex: 1 1 33%;
 		}
-		.wrapper3 {
-			flex-grow: 1;
-			flex: 1 1 33%;
+		.down-icon-wrapper {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -206,7 +204,7 @@
 			align-items: center;
 			text-align: center;
 
-			h6 {
+			.h6 {
 				font-family: "Open Sans";
 				font-style: normal;
 				font-weight: bold;
@@ -215,7 +213,7 @@
 				letter-spacing: 0.5em;
 				text-transform: uppercase;
 			}
-			h1 {
+			.h1 {
 				font-family: "Banny";
 				font-size: 96px;
 				line-height: 0px;
@@ -230,7 +228,7 @@
 			.buttons {
 				margin-top: 30px;
 
-				input {
+				.input {
 					margin: 0 10px;
 					color: #ffffff;
 					font-family: Open Sans;

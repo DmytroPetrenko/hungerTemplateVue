@@ -1,41 +1,41 @@
 <template>
-	<div :id="name" class="section" :style="backgroundImage">
+	<div :id="sectionName" class="section" :style="backgroundImage">
 		<div class="header">
-			<p>{{ header }}</p>
+			<p class="text">{{ sectionHeaderText }}</p>
 		</div>
 		<div class="main" v-if="mode === 'imageText'">
-			<ImageBlock :src="src" :isSquereLeft="isSquereLeft" />
-			<TextBlock
-				:h2="h2"
+			<base-image-block :src="src" :isSquereLeft="isSquereLeft" />
+			<base-text-block
+				:textBlockHeaderText="textBlockHeaderText"
 				:isTextWhite="isTextWhite"
 				:isTextRight="isTextRight"
 			/>
 		</div>
 		<div class="main" v-if="mode === 'textImage'">
-			<TextBlock
-				:h2="h2"
+			<base-text-block
+				:textBlockHeaderText="textBlockHeaderText"
 				:isTextWhite="isTextWhite"
 				:isTextRight="isTextRight"
 			/>
-			<ImageBlock :src="src" :isSquereLeft="isSquereLeft" />
+			<base-image-block :src="src" :isSquereLeft="isSquereLeft" />
 		</div>
 		<div class="main" v-if="mode === 'formImage'">
-			<BookingForm />
-			<ImageBlock :src="src" :isSquereLeft="isSquereLeft" />
+			<default-section-booking-form />
+			<base-image-block :src="src" :isSquereLeft="isSquereLeft" />
 		</div>
 		<div class="footer">
-			<p>{{ footer }}</p>
+			<p class="text">{{ sectionFooterText }}</p>
 		</div>
 	</div>
 </template>
 <script>
-import TextBlock from "@/components/TextBlock"
-import ImageBlock from "@/components/ImageBlock"
-import BookingForm from "@/components/BookingForm"
+import BaseTextBlock from "@/components/BaseTextBlock"
+import BaseImageBlock from "@/components/BaseImageBlock"
+import DefaultSectionBookingForm from "@/components/DefaultSectionBookingForm"
 export default {
-	name: "Section",
+	name: "DefaultSection",
 	props: {
-		name: {
+		sectionName: {
 			type: String,
 			required: true,
 		},
@@ -46,16 +46,19 @@ export default {
 		mode: {
 			type: String,
 			default: "textImage",
+			validator: function (value) {
+				return ["textImage", "imageText", "formImage"].indexOf(value) !== -1
+			},
 		},
 		background: {
 			type: String,
 			default: undefined,
 		},
-		header: {
+		sectionHeaderText: {
 			type: String,
 			default: "",
 		},
-		footer: {
+		sectionFooterText: {
 			type: String,
 			default: "",
 		},
@@ -63,7 +66,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		h2: {
+		textBlockHeaderText: {
 			type: String,
 			default: "",
 		},
@@ -76,7 +79,7 @@ export default {
 			default: false,
 		},
 	},
-	components: { TextBlock, ImageBlock, BookingForm },
+	components: { BaseTextBlock, BaseImageBlock, DefaultSectionBookingForm },
 	computed: {
 		backgroundImage() {
 			if (this.background) {
@@ -122,7 +125,7 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		p {
+		.text {
 			margin: 0;
 			font-family: "Open Sans";
 			font-style: normal;

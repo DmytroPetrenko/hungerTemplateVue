@@ -1,7 +1,7 @@
 <template>
 	<div class="image_block">
 		<div class="wrapper" :class="{ squereLeft: isSquereLeft }">
-			<img :src="src" />
+			<img class="img" :src="src" />
 			<div class="squere"></div>
 		</div>
 	</div>
@@ -32,7 +32,7 @@ export default {
 		position: relative;
 		width: 600px;
 		height: 475px;
-		img {
+		.img {
 			position: absolute;
 			top: 0;
 			right: 85px;
@@ -53,7 +53,7 @@ export default {
 	}
 }
 .squereLeft {
-	img {
+	.img {
 		left: 85px !important;
 		right: auto !important;
 	}

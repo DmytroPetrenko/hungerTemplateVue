@@ -1,6 +1,8 @@
 <template>
 	<div class="text_block" :class="{ textRight: isTextRight }">
-		<h2 :class="{ white: isTextWhite }">{{ h2 }}</h2>
+		<h2 class="h2" :class="{ white: isTextWhite }">
+			{{ textBlockHeaderText }}
+		</h2>
 		<hr />
 		<p class="subheader" :class="{ white: isTextWhite }">
 			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quae
@@ -18,7 +20,7 @@
 <script>
 export default {
 	props: {
-		h2: {
+		textBlockHeaderText: {
 			type: String,
 			required: true,
 		},
@@ -49,7 +51,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	margin-right: 40px;
-	h2 {
+	.h2 {
 		font-family: "Banny";
 		font-size: 36px;
 		line-height: 48px;

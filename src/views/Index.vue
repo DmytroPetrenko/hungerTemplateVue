@@ -1,37 +1,37 @@
 <template>
 	<div class="index">
-		<Home />
-		<Section
-			:name="`about`"
+		<the-home-section />
+		<default-section
+			sectionName="about"
 			:src="require(`@/assets/about-img.png`)"
-			:h2="`About us`"
+			textBlockHeaderText="About us"
 		/>
-		<Section
-			:mode="`imageText`"
-			:name="`team`"
+		<default-section
+			mode="imageText"
+			sectionName="team"
 			:src="require(`@/assets/Rectangle.png`)"
 			:background="require(`@/assets/team-bg.png`)"
-			:header="`Our team`"
+			sectionHeaderText="Our team"
 			:isSquereLeft="true"
-			:h2="`Masterchef`"
+			textBlockHeaderText="Masterchef"
 			:isTextWhite="true"
 			:isTextRight="true"
 		/>
-		<Section
-			:mode="`formImage`"
-			:name="`booking`"
+		<default-section
+			mode="formImage"
+			sectionName="booking"
 			:src="require(`@/assets/book-img.png`)"
-			:footer="`Mon - Fri: 8PM - 10PM, Sat - Sun: 8PM - 3AM, Phone: +40 729 131
-					637/+40 726 458 782`"
+			sectionFooterText="Mon - Fri: 8PM - 10PM, Sat - Sun: 8PM - 3AM, Phone: +40 729 131
+					637/+40 726 458 782"
 		/>
-		<Section
-			:mode="`imageText`"
-			:name="`specialties`"
+		<default-section
+			mode="imageText"
+			sectionName="specialties"
 			:src="require(`@/assets/Specialties.png`)"
 			:background="require(`@/assets/specialties-bg.png`)"
-			:header="`Specialties`"
+			sectionHeaderText="Specialties"
 			:isSquereLeft="true"
-			:h2="`Cholate Pankaces`"
+			textBlockHeaderText="Cholate Pankaces"
 			:isTextWhite="true"
 			:isTextRight="true"
 		/>
@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import Home from "@/components/Home"
-import Section from "@/components/Section"
+import TheHomeSection from "@/components/TheHomeSection"
+import DefaultSection from "@/components/DefaultSection"
 
 export default {
 	name: "Index",
-	components: { Home, Section },
+	components: { TheHomeSection, DefaultSection },
 }
 </script>
 

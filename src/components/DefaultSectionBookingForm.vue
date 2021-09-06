@@ -1,29 +1,29 @@
 <template>
 	<div class="form_block">
-		<h2>Book a table</h2>
+		<h2 class="h2">Book a table</h2>
 		<hr />
 		<form class="form" autocomplete="off" novalidate>
-			<fieldset>
+			<fieldset class="fieldset">
 				<input placeholder="Name" type="text" class="input-text" />
 				<input placeholder="Email" type="text" class="input-text" />
 			</fieldset>
-			<fieldset>
+			<fieldset class="fieldset">
 				<input placeholder="Phone" type="text" class="input-text" />
-				<select name="people_selector" id="people_selector">
+				<select class="select" name="people_selector" id="people_selector">
 					<option class="selected" value="" disabled selected>People</option>
 					<option>Пункт 1</option>
 					<option>Пункт 2</option>
 				</select>
 			</fieldset>
-			<fieldset>
+			<fieldset class="fieldset">
 				<input placeholder="Date (mm/dd)" type="text" class="input-text" />
-				<select name="people_selector" id="people_selector">
+				<select class="select" name="people_selector" id="people_selector">
 					<option class="selected" value="" disabled selected>Time</option>
 					<option>Пункт 1</option>
 					<option>Пункт 2</option>
 				</select>
 			</fieldset>
-			<fieldset>
+			<fieldset class="fieldset">
 				<button class="btn">submit</button>
 			</fieldset>
 		</form>
@@ -31,7 +31,7 @@
 </template>
 <script>
 export default {
-	name: "BookingForm",
+	name: "DefaultSectionBookingForm",
 }
 </script>
 <style lang="scss" scoped>
@@ -42,7 +42,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 
-	h2 {
+	.h2 {
 		font-family: "Banny";
 		font-size: 36px;
 		line-height: 48px;
@@ -62,15 +62,15 @@ export default {
 	}
 
 	.form {
-		fieldset {
+		.fieldset {
 			border: none;
 			padding: 0;
 			position: relative;
 			clear: both;
 			margin: 0;
 
-			input,
-			select {
+			.input-text,
+			.select {
 				width: 277px;
 				height: 60px;
 				background: #e5e5e5;
@@ -79,14 +79,14 @@ export default {
 				margin: 5px;
 				padding: 0;
 			}
-			input::placeholder {
+			.input-text::placeholder {
 				padding-left: 15px;
 			}
-			input::placeholder,
-			select {
+			.input-text::placeholder,
+			.select {
 				color: rgba(51, 51, 51, 0.5);
 			}
-			select {
+			.select {
 				padding-left: 10px;
 			}
 			.btn {
