@@ -1,5 +1,8 @@
 <template>
-	<div class="text_block" :class="{ textRight: isTextRight }">
+	<div
+		class="text_block"
+		:class="{ textRight: isTextRight, textCenter: isTextCenter }"
+	>
 		<h2 class="h2" :class="{ white: isTextWhite }">
 			{{ textBlockHeaderText }}
 		</h2>
@@ -8,7 +11,7 @@
 			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto quae
 			dolore laudantium, nisi dignissimos vel?
 		</p>
-		<p class="text" :class="{ white: isTextWhite }">
+		<p v-if="!isTextCenter" class="text" :class="{ white: isTextWhite }">
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat velit
 			modi, autem voluptatibus ex nostrum dolores. Autem, aspernatur? Itaque
 			voluptate ducimus nemo harum provident. Dicta quod adipisci nulla harum
@@ -32,6 +35,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		isTextCenter: {
+			type: Boolean,
+			default: false,
+		},
 	},
 }
 </script>
@@ -43,6 +50,10 @@ export default {
 .textRight {
 	margin-left: 0 !important;
 	margin-right: 20px !important;
+}
+.textCenter {
+	max-width: 50%;
+	margin: 0 auto !important;
 }
 .text_block {
 	flex: 1 1 0;
