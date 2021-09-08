@@ -35,16 +35,56 @@
 			:isTextWhite="true"
 			:isTextRight="true"
 		/>
+		<the-menu-section :tabs="tabs" />
+		<default-section
+			mode="imageImage"
+			sectionName="events"
+			:src="require(`@/assets/events1.png`)"
+			imageText="Weddings"
+			additionalImageText="Corporate parties"
+			:srcAdditionalImage="require(`@/assets/events2.png`)"
+			:background="require(`@/assets/events-bg.png`)"
+			sectionHeaderText="Private events"
+			sectionFooterText="For private events please call: +40 729 131 637/+40 726 458 782 or use the contact form."
+		/>
+		<base-galerie :images="galerieImages" />
+		<the-contact-section />
+		<base-map />
+		<the-footer />
 	</div>
 </template>
 
 <script>
 import TheHomeSection from "@/components/TheHomeSection"
+import TheMenuSection from "@/components/TheMenuSection"
+import TheContactSection from "@/components/TheContactSection"
 import DefaultSection from "@/components/DefaultSection"
+import BaseGalerie from "@/components/BaseGalerie"
+import BaseMap from "@/components/BaseMap"
+import TheFooter from "@/components/TheFooter.vue"
 
 export default {
 	name: "Index",
-	components: { TheHomeSection, DefaultSection },
+	components: {
+		TheHomeSection,
+		TheMenuSection,
+		TheContactSection,
+		DefaultSection,
+		BaseGalerie,
+		BaseMap,
+		TheFooter,
+	},
+	data() {
+		return {
+			tabs: ["Soupe", "Pizza", "Pasta", "Desert", "Wine", "Beer", "Drinks"],
+			galerieImages: [
+				"galerie1.png",
+				"galerie2.png",
+				"galerie3.png",
+				"galerie4.png",
+			],
+		}
+	},
 }
 </script>
 

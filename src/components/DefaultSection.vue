@@ -23,6 +23,19 @@
 			<default-section-booking-form />
 			<base-image-block :src="src" :isSquereLeft="isSquereLeft" />
 		</div>
+		<div class="main" v-if="mode === 'imageImage'">
+			<base-image-block
+				:src="src"
+				:isSquereLeft="!isSquereLeft"
+				:imageText="imageText"
+				:isLeftImage="true"
+			/>
+			<base-image-block
+				:src="srcAdditionalImage"
+				:isSquereLeft="isSquereLeft"
+				:imageText="additionalImageText"
+			/>
+		</div>
 		<div class="footer">
 			<p class="text">{{ sectionFooterText }}</p>
 		</div>
@@ -47,7 +60,11 @@ export default {
 			type: String,
 			default: "textImage",
 			validator: function (value) {
-				return ["textImage", "imageText", "formImage"].indexOf(value) !== -1
+				return (
+					["textImage", "imageText", "formImage", "imageImage"].indexOf(
+						value
+					) !== -1
+				)
 			},
 		},
 		background: {
@@ -77,6 +94,18 @@ export default {
 		isTextRight: {
 			type: Boolean,
 			default: false,
+		},
+		srcAdditionalImage: {
+			type: String,
+			default: "",
+		},
+		imageText: {
+			type: String,
+			default: "",
+		},
+		additionalImageText: {
+			type: String,
+			default: "",
 		},
 	},
 	components: { BaseTextBlock, BaseImageBlock, DefaultSectionBookingForm },

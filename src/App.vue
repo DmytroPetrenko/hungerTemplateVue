@@ -22,4 +22,11 @@ body {
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: "Font Awesome 5 Free";
+	src: url("assets/fonts/font-awesome/Font Awesome 5 Free-Regular-400.otf")
+		format("otf");
+	font-weight: normal;
+	font-style: normal;
+}
 </style>

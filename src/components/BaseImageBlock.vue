@@ -2,6 +2,21 @@
 	<div class="image_block">
 		<div class="wrapper" :class="{ squereLeft: isSquereLeft }">
 			<img class="img" :src="src" />
+			<div
+				:class="{
+					imageTextBlock: imageText,
+					imageTextBlockRight: isLeftImage,
+				}"
+			>
+				<div
+					class="text"
+					:class="{
+						textBlockRight: isLeftImage,
+					}"
+				>
+					<p>{{ imageText }}</p>
+				</div>
+			</div>
 			<div class="squere"></div>
 		</div>
 	</div>
@@ -15,6 +30,14 @@ export default {
 			required: true,
 		},
 		isSquereLeft: {
+			type: Boolean,
+			default: false,
+		},
+		imageText: {
+			type: String,
+			default: undefined,
+		},
+		isLeftImage: {
 			type: Boolean,
 			default: false,
 		},
@@ -60,6 +83,44 @@ export default {
 	.squere {
 		left: 0 !important;
 		right: auto !important;
+	}
+}
+.imageTextBlock {
+	position: absolute;
+	width: 80px;
+	height: calc(100% - 80px);
+	background: black;
+	top: 40px;
+	left: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+
+	.text {
+		font-family: "Banny";
+		font-size: 24px;
+		line-height: 12px;
+
+		display: flex;
+		align-items: center;
+		text-indent: 20px;
+		text-transform: uppercase;
+
+		color: #ffffff;
+		white-space: nowrap;
+
+		transform: rotate(-90deg);
+		position: relative;
+		p {
+			position: absolute;
+		}
+	}
+}
+.imageTextBlockRight {
+	left: 440px !important;
+	align-items: flex-start !important;
+	.textBlockRight {
+		transform: rotate(90deg);
 	}
 }
 </style>
