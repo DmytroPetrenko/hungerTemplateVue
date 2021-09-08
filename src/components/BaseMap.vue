@@ -62,7 +62,7 @@ export default {
 				this.existingPlace = null
 			}
 		},
-		locateGeoLocation: function () {
+		locateGeoLocation() {
 			navigator.geolocation.getCurrentPosition((res) => {
 				this.center = {
 					lat: res.coords.latitude,

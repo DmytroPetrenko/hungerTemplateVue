@@ -16,7 +16,7 @@
 		</fieldset>
 		<fieldset class="fieldset">
 			<div class="contact-information">
-				<slot name="contactInformation"></slot>
+				<slot name="contactInformation" />
 			</div>
 			<button class="btn">Send Message</button>
 		</fieldset>

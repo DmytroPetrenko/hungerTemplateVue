@@ -4,7 +4,7 @@
 			v-for="index in 3"
 			:key="index"
 			class="menu-column"
-			:class="index === 2 ? 'central' : ''"
+			:class="isCentral(index)"
 		>
 			<menu-item v-for="index in 7" :key="index" />
 		</div>
@@ -15,6 +15,11 @@ import MenuItem from "@/components/MenuItem"
 export default {
 	name: "MenuList",
 	components: { MenuItem },
+	computed: {
+		isCentral() {
+			return (index) => (index === 2 ? "central" : "")
+		},
+	},
 }
 </script>
 <style lang="scss" scoped>

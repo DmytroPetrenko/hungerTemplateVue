@@ -5,7 +5,7 @@
 				v-for="(tab, index) in tabs"
 				:key="tab"
 				class="list-item"
-				:class="index < tabs.length - 1 ? 'border' : ''"
+				:class="isBorderNeeded(index)"
 			>
 				{{ tab }}
 			</li>
@@ -19,6 +19,11 @@ export default {
 		tabs: {
 			type: Array,
 			required: true,
+		},
+	},
+	computed: {
+		isBorderNeeded() {
+			return (index) => (index < this.tabs.length - 1 ? "border" : "")
 		},
 	},
 }
