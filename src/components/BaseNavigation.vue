@@ -23,7 +23,7 @@ export default {
 	},
 	computed: {
 		isBorderNeeded() {
-			return (index) => (index < this.tabs.length - 1 ? "border" : "")
+			return (index) => ({ border: index < this.tabs.length - 1 })
 		},
 	},
 }

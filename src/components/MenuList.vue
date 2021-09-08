@@ -17,7 +17,7 @@ export default {
 	components: { MenuItem },
 	computed: {
 		isCentral() {
-			return (index) => (index === 2 ? "central" : "")
+			return (index) => ({ central: index === 2 })
 		},
 	},
 }
